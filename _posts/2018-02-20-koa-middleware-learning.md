@@ -8,7 +8,8 @@ koa 学习
 
 以下是compose函数源码:
 
-<blockquote>function compose(middleware) {
+```
+function compose(middleware) {
   // 错误处理
   if (!Array.isArray(middleware)) throw new TypeError('Middleware stack must be an array!')
   for (const fn of middleware) {
@@ -37,4 +38,5 @@ koa 学习
       }
     }
   }
-}</blockquote>
+}
+```
