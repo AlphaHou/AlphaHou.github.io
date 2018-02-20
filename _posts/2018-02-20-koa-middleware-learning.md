@@ -1,4 +1,4 @@
-
+<!-- 
 
 > 很荣幸在今年 2 月到 5 月的时间里，以顾问的身份加入饿了么，参与 PWA 的相关工作。这篇文章其实最初是在以英文写作发表在 medium 上的：[Upgrading Ele.me to Progressive Web Apps](https://medium.com/elemefe/upgrading-ele-me-to-progressive-web-app-2a446832e509)，获得了一定的关注。所以也决定改写为中文版本再次分享出来，希望能对你有所帮助 ;) <br><br>
 > 本文首发于 [CSDN](http://geek.csdn.net/news/detail/210535) 与《程序员》2017 年 7 月刊，同步发布于 [饿了么前端 - 知乎专栏](https://zhuanlan.zhihu.com/ElemeFE)、[Hux Blog](https://huangxuan.me)，转载请保留链接。
@@ -205,3 +205,47 @@ PWA 作为[下一代 Web 应用模型](https://zhuanlan.zhihu.com/p/25167289)，
 [12]: https://developers.google.com/web/updates/2015/11/app-shell
 [13]: https://googlechrome.github.io/sw-toolbox/
 
+ -->
+
+koa 学习
+============
+
+##middleware中间件
+
+>每次调用app.use()会在app对象中的middleware数组中添加一个函数。然后在listen方法中调用在application模块中注册的回调函数。该回调函数使用compose函数处理middleware。在compose函数中，返回一个能够依次调用中间件的函数，此函数会在listen函数中，作为构造server的参数。
+
+以下是compose函数源码:
+
+'<function compose(middleware) {
+  // 错误处理
+  if (!Array.isArray(middleware)) throw new TypeError('Middleware stack must be an array!')
+  for (const fn of middleware) {
+    if (typeof fn !== 'function') throw new TypeError('Middleware must be composed of functions!')
+  }
+
+  return function(context, next) {
+    // last called middleware #
+    let index = -1
+    return dispatch(0)
+
+    function dispatch(i) {
+      if (i <= index) return Promise.reject(new Error('next() called multiple times'))
+      // 当前执行第 i 个中间件
+      index = i
+      let fn = middleware[i]
+      // 所有的中间件执行完毕
+      if (i === middleware.length) fn = next
+      if (!fn) return Promise.resolve()
+
+      try {
+        // 执行当前的中间件
+        // 这里的fn也就是app.use(fn)中的fn
+        return Promise.resolve(fn(context, function next() {
+          return dispatch(i + 1)
+        }))
+      } catch (err) {
+        return Promise.reject(err)
+      }
+    }
+  }
+}>'
