@@ -5,7 +5,7 @@ header-img: img/home-bg.jpg
 email: 327282506@qq.com
 description: "猴子敲键盘，猩猩扔飞镖。"
 keyword: "Web, JavaScript, 前端"
-url: "https://alphahou.me/"              # your host, for absolute URL
+url: "https://alphahou.github.io"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
@@ -61,14 +61,14 @@ netease_comment: false
 
 # Google Analytics
 ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+ga_domain: 
 
 
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "写写代码，做做设计，<br>离开世界之前，一切都是过程"
-sidebar-avatar: /img/avatar-hux.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "努力学习。"
+sidebar-avatar: /img/avatar-hou.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
