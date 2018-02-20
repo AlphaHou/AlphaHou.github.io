@@ -60,3 +60,8 @@ module.exports = function (dir) {
     return router.routes()
 }
 ```
+
+
+##总结
+
+在addController中，我们得到了对象数组，在addMapping中，我们遍历这些对象，在router中注册对应的请求和方法，实现模块化的路由。
