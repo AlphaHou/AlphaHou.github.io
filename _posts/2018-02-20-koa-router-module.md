@@ -19,7 +19,7 @@ kao-router提供有get(url,async fn),post(url,async fn)方法。
 
 如果在主程序中不断定义router必定导致程序臃肿，难以维护，因此有必要想办法将路由地址和对应的方法模块化，这样不但能够复用代码，同时也使得主程序变得简洁，耦合低。
 
-模块化的一个办法是，在最上层路径添加一个controller.js的控制器，以及一个controllers的文件夹，里面放置存有路径和方法的js文件。这些模块的输出标准为一个{‘METHOD /url': async fn}的对象。在controller.js中，通过 '<fs.readdirSync(__dirname+'/controllers/')>' 扫描文件夹内的文件，得到files后，filter帅选js文件。循环遍历得到的数组，通过 '<require(__dirname+'/controllers/'+f)>' 得到对象。循环判断对象中的键值，使用对应的方法。这一步骤结束后，我们就可以放心输出controller.js中的router.route()了。在主程序中引入controller.js，在合适位置调用app.use(controller())，大功告成。
+模块化的一个办法是，在最上层路径添加一个controller.js的控制器，以及一个controllers的文件夹，里面放置存有路径和方法的js文件。这些模块的输出标准为一个{‘METHOD /url': async fn}的对象。在controller.js中，通过 `<fs.readdirSync(__dirname+'/controllers/')>` 扫描文件夹内的文件，得到files后，filter帅选js文件。循环遍历得到的数组，通过 `<require(__dirname+'/controllers/'+f)>` 得到对象。循环判断对象中的键值，使用对应的方法。这一步骤结束后，我们就可以放心输出controller.js中的router.route()了。在主程序中引入controller.js，在合适位置调用app.use(controller())，大功告成。
 
 以下是controller的代码：
 
