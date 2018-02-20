@@ -8,18 +8,16 @@ koa 学习
 
 以下是compose函数源码:
 
-'<function compose(middleware) {
+`<function compose(middleware) {
   // 错误处理
   if (!Array.isArray(middleware)) throw new TypeError('Middleware stack must be an array!')
   for (const fn of middleware) {
     if (typeof fn !== 'function') throw new TypeError('Middleware must be composed of functions!')
   }
-
   return function(context, next) {
     // last called middleware #
     let index = -1
     return dispatch(0)
-
     function dispatch(i) {
       if (i <= index) return Promise.reject(new Error('next() called multiple times'))
       // 当前执行第 i 个中间件
@@ -28,7 +26,6 @@ koa 学习
       // 所有的中间件执行完毕
       if (i === middleware.length) fn = next
       if (!fn) return Promise.resolve()
-
       try {
         // 执行当前的中间件
         // 这里的fn也就是app.use(fn)中的fn
@@ -40,4 +37,4 @@ koa 学习
       }
     }
   }
-}>'
+}>`
