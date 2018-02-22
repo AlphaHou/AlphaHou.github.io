@@ -3,17 +3,19 @@ layout:     post
 title:      koa-middleware-learning
 date:       2018-02-20 18:00:00
 author:     "Hou"
-header-img: "img/post-bg-rwd.jpg"
+header-img: "img/post-bg-node.png"
 tags:
     - node
     - koa
 ---
 koa 学习
 ============
+>每次调用app.use()会在app对象中的middleware数组中添加一个函数。然后在listen方法中调用在application模块中注册的回调函数。该回调函数使用compose函数处理middleware。在compose函数中，返回一个能够依次调用中间件的函数，此函数会在listen函数中，作为构造server的参数。
+
 
 ## middleware中间件
 
->每次调用app.use()会在app对象中的middleware数组中添加一个函数。然后在listen方法中调用在application模块中注册的回调函数。该回调函数使用compose函数处理middleware。在compose函数中，返回一个能够依次调用中间件的函数，此函数会在listen函数中，作为构造server的参数。
+
 
 以下是compose函数源码:
 
