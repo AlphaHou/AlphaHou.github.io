@@ -27,7 +27,7 @@ webpack引入bootstrap有两大坑，一是jquery的引入，二是popper.js的�
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
-    "bootstrap": "^4.0.0",
+    "bootstrap": "^3.3.7",
     "css-loader": "^0.28.9",
     "expose-loader": "^0.7.4",
     "file-loader": "^1.1.6",
@@ -56,7 +56,7 @@ webpack引入bootstrap有两大坑，一是jquery的引入，二是popper.js的�
 
 
 ```
-  const path=require('path')
+const path=require('path')
 const webpack=require('webpack')
 module.exports={
     entry:'./src/main.js',
@@ -100,16 +100,14 @@ module.exports={
 
         },
         {
-            test:/\.(jpg|png|svg|ttf|woff|woff2|gif)$/,
+            test:/\.(jpg|png|svg|ttf|woff|eot|woff2|gif)$/,
             loader:'url-loader',
             options:{
                 limit:4096,
                 name:'[name].[ext]',
             }
         },
-        { test: /\.(woff|woff2)$/, loader:"url-loader?prefix=font/&limit=5000" },
-        　　 { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&mimetype=application/octet-stream" },
-            { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader?limit=10000&mimetype=image/svg+xml" },
+        
         {
             test:/\.js$/,
             loader:'babel-loader',

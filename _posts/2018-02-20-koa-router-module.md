@@ -1,19 +1,21 @@
 ---
 layout:     post
-title:      koa-middleware-learning
+title:      koa-controller-learning
 date:       2018-02-20 20:00:00
 author:     "Hou"
-header-img: "img/post-bg-rwd.jpg"
+header-img: "img/post-bg-node.png"
 tags:
     - node
     - koa
 ---
 koa 学习
 ============
+>使用koa-router前需要在控制台npm install koa-router -S，之后通过require（'koa-router')的方式引入。引入的koa-router是个函数，所以需要声明变量接住返回的router。在定义好router方式后，通过app.use(router.route())将router注册进中间件。
+
 
 ## router路由
 
->使用koa-router前需要在控制台npm install koa-router -S，之后通过require（'koa-router')的方式引入。引入的koa-router是个函数，所以需要声明变量接住返回的router。在定义好router方式后，通过app.use(router.route())将router注册进中间件。
+
 
 kao-router提供有get(url,async fn),post(url,async fn)方法。
 
