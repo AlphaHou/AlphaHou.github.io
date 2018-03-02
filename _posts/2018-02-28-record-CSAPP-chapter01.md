@@ -3,11 +3,11 @@ layout:     post
 title:      reading-note-csapp
 date:       2018-02-28 22:48:00
 author:     "Hou"
-header-img: "img/post-bg-computer-science"
+header-img: "img/post-bg-computer-science.jpg"
 tags:
     - note
 ---
-深入理解计算机系统第一章小结
+第一章-漫游计算机系统小结
 ============
 
 
