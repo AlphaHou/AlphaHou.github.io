@@ -6,6 +6,7 @@ author:     "Hou"
 header-img: "img/post-bg-computer-science.jpg"
 tags:
     - note
+    - csapp
 ---
 第一章-漫游计算机系统小结
 ============
